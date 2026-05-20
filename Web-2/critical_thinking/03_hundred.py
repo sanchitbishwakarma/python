@@ -55,7 +55,7 @@ else:
         onesReminder = (number % 100) % 10
         if tensReminder < 20:
             if tensReminder in smallNumber:
-                print(f"{smallNumber[tensReminder]} Hundred {smallNumber[tensReminder]}")
+                print(f"{firstHundredWord} Hundred {smallNumber[tensReminder]}")
         else:
             onesReminder = (number % 100) % 10
             firstWord = tensNumber[tensReminder - onesReminder]
