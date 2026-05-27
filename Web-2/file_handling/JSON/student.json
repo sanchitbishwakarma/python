@@ -1,0 +1,11 @@
+{
+    "name": "Sanchit Bishwakarma",
+    "age": 14,
+    "subjects": ["Math", "Science", "English"],
+    "address": {
+        "street": "123 Main St",
+        "city": "Kathmandu",
+        "country": "Nepal",
+        "pin":4100
+    }
+}
