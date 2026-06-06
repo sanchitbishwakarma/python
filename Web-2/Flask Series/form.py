@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms import DataRequired
+from wtforms.validators import DataRequired
 # from wtforms import validators
 
 class NameForm(FlaskForm):

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WT-Form | Flask</title>
+    <style>
+        * {
+            font-family: monospace;
+        }
+
+        .formyForm {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .formyForm label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .formyForm input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .formyForm input[type="submit"] {
+            padding: 10px;
+            background-color: #55a6c7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .formyForm input[type="submit"]:hover {
+            background-color: #4c95b1;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="nav">
+        <h3>Form Page</h3>
+        <a href="/">Back to Home</a>
+    </div>
+    {#
+    <div>
+        <h2>Form</h2>
+        <form method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <input type="submit" value="Submit"><br><br>
+
+        </form>
+        {% if error %}
+        <label style="color:red;">{{error}}</label>
+        {% else %}
+        <label style="color:black;">*Write the your name</label>
+        {% endif %}
+    </div>
+    #}
+
+    <form method="post" class="formyForm">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }}
+        {# COMMENT {{ form.name() }} found that this gives a default size of #}
+        {{ form.name(size=22, placeholder='I don\'t know your name, what is it?') }}
+        {{ form.submit() }}
+    </form>
+</body>
+
+</html>
