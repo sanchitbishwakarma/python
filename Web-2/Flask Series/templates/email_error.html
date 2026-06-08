@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sent</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: #141414;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #f3f3f3;
+        }
+
+        .success-card {
+            width: 420px;
+            max-width: 92%;
+            background: rgb(50, 50, 50);
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 26px;
+        }
+
+        p {
+            margin: 0;
+            color: #d5d5d5;
+            line-height: 1.5;
+        }
+
+        .actions {
+            margin-top: 22px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background: #dc3545;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #c32b3f;
+        }
+
+        .btn-secondary {
+            background: #2f2f2f;
+            color: #f0f0f0;
+            border: 1px solid #444;
+        }
+
+        .btn-secondary:hover {
+            background: #3a3a3a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-card">
+        <div class="icon">❌</div>
+        <h2>Failed to Send Email</h2>
+        <p>There was a problem sending your message.</p>
+        {% if error_message %}
+        <p style="margin-top:10px; color:#f1c0c0; font-size:14px;">{{ error_message }}</p>
+        {% endif %}
+
+        <div class="actions">
+            <button class="btn btn-primary" onclick="window.history.back()">Try Again</button>
+            <a class="btn btn-secondary" href="/">Go To Home</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

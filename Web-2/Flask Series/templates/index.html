@@ -1,16 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HimalIntern</title>
-</head>
-<body>    
-    <img src="./static/himali.png" alt="HimalIntern Logo">
-    <img src="static\himalintern.png" alt="HimalIntern Logo" height="300" width="300">
-    <img src="{{url_for('static', filename='himalintern.png')}}" alt="HimalIntern Logo" height="300" width="300">
 
-    <h3>Form Page</h3>
-    <a href="/wt-form">formm</a>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .logo {
+            width: 250px;
+            height: auto;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            max-width: 500px;
+            margin: 10px auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            margin-top: 80px;
+            color: gray;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img src="{{ url_for('static', filename='himalintern.png') }}" alt="HimalIntern Logo" class="logo">
+
+        <h1>HimalIntern</h1>
+
+        <p>
+            Simple email automation platform for sending messages,
+            managing recipients, and attaching files with ease.
+        </p>
+
+        <a href="/wt-form" class="btn">
+            Open Email Form
+        </a>
+        <a href="/email/send" class="btn">
+            Send Email
+        </a>
+
+        <footer>
+            Built with Flask ❤️
+        </footer>
+
+    </div>
+
 </body>
+
 </html>

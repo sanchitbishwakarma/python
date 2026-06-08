@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Mailers</title>
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #141414;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background: rgb(50, 50, 50);
+            padding: 25px;
+            border-radius: 8px;
+            width: 420px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .attachment-box {
+            margin-top: 15px;
+            padding: 12px;
+            border: 1px dashed #bbb;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>💌 Mailers</h2>
+        
+        <form id="emailForm" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            {{ form.e_recipients.label }} {{ form.e_recipients(placeholder=form.e_recipients.description) }}
+            {{ form.e_subject.label }} {{ form.e_subject(placeholder=form.e_subject.description) }}                        
+            {{ form.e_message.label }} {{ form.e_message(placeholder=form.e_message.description) }}
+            
+            <div class="attachment-box">
+                {{ form.e_attachment.label }} {{ form.e_attachment() }}
+            </div>            
+
+            {{ form.e_submit.label }} {{ form.e_submit() }}
+        </form>
+    </div>
+</body>
+
+</html>

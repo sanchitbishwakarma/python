@@ -67,12 +67,18 @@
     </div>
     #}
 
-    <form method="post" class="formyForm">
+    <form method="post">
         {{ form.hidden_tag() }}
+        
         {{ form.name.label }}
         {# COMMENT {{ form.name() }} found that this gives a default size of #}
         {{ form.name(size=22, placeholder='I don\'t know your name, what is it?') }}
+        
+        {{ form.email.label }}
+        {{ form.email(size=22, placeholder='I don\'t know your email, what is it?') }}
         {{ form.submit() }}
+
+        
     </form>
 </body>
 

@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
-# from wtforms import validators
+from wtforms import StringField, SubmitField, EmailField, RadioField
+from wtforms.validators import DataRequired, Email, Length
 
 class NameForm(FlaskForm):
-    name = StringField('Enter your name', validators=[DataRequired()]) # , [validators.data_required()]
+    name = StringField('Name', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired(), Email(), Length(max=50)])
+    gender = RadioField(label='Gender')
     submit = SubmitField('Submit')
