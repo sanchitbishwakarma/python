@@ -103,35 +103,5 @@ def emailSuccess():
 def emailError():
     return render_template("email_error.html")
 
-
-@app.route("/cookies/set")
-def setCookies():
-    res = make_response("Cookies set successfully")
-    res.set_cookie("PROGRAM", "BCA", max_age=100)
-    return res
-
-
-@app.route("/cookies/get")
-def getCookies():
-    res = request.cookies.get("PROGRAM") or None
-    if res is None:
-        return "There is no cookies related to your request."
-    return res
-
-
-@app.route("/cookies/del-set")
-def delBySet():
-    res = make_response("Cookies deleted successfully by SET.")
-    res.set_cookie("PROGRAM", "", expires=0)
-    return res
-
-
-@app.route("/cookies/delete")
-def delByEte():
-    res = make_response("Cookies deleted successfully by DELETE")
-    res.delete_cookie("PROGRAM")
-    return res
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=5173)
