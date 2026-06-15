@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data | DB CRUD</title>
+</head>
+
+<body>
+    <h2>Edit Student</h2>
+
+    <form method="post">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" value="{{ student.name }}">
+        <br><br>
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email" value="{{ student.email }}">
+        <br><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+
+</html>
