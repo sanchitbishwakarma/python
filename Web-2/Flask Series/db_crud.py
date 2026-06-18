@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -65,6 +65,15 @@ def delete_data(id):
     db.session.commit()
     return redirect(url_for("read_root"))
 
+@app.route("/api/students")
+def get_student():
+    data = {
+        'id':1,
+        'name': 'sanchit',
+        'email':'sanchit@sanchit.ai'
+    }
+
+    return jsonify(data)
 
 if __name__ == "__main__":
     with app.app_context():
