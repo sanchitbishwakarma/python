@@ -22,7 +22,7 @@ def root():
 def add_multiple():
     try:
         s1 = Student(name="Sanchit", email="sanchit@sanchit.ai")
-        s2 = Student(name="GitHub", email="github@github.com")
+        s2 = Student(name="GitHub", email="github@githu~b.com")
         db.session.add_all([s1, s2])
         db.session.commit()  # it will commit only if both data will insert successfully
         return "All students are successfully inserted."

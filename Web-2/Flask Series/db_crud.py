@@ -29,11 +29,25 @@ def add_data():
         student = Student(name=name, email=email)
         db.session.add(student)
         db.session.commit()
+        return redirect(url_for("read_root"))  # redirect('/')
+    return render_template("db_crud/add_data.html")
+
+
+@app.route("/data/add-multiple")
+def add_multiple():
+    try:
+        s1 = Student(name="Sanchit", email="sanchit@sanchit.ai")
+        s2 = Student(name="GitHub", email="github@github.com")
+        db.session.add_all([s1, s2])
+        db.session.commit()  
+        # it will commit only if both data will insert successfuly else rollbcak
         return redirect(url_for("read_root"))
-    return render_template("db_crud/add_data.html", students=student)
+    except:
+        db.session.rollback()
+        return "Error: Transaction Failed"
 
 
-@app.route("/data/edit/<int:id>", methods=["GET", "POST"])
+@app.route("/data/edit/<int:id>", methods=["GET", "POST", "PUT"])
 def update_data(id):
     student = Student.query.get_or_404(id)
     if request.method == "POST":
