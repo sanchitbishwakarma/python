@@ -1,3 +1,14 @@
+!mr-beast-python/
+!mr-beast-python/store/
+mr-beast-python/store/*
+!mr-beast-python/store/.gitkeep
+
+ncit-bca-django-2026-ecommerce/
+Workshop/
+RAG-Workshop/
+Youtube-Django/
+
+
 # Created by https://www.toptal.com/developers/gitignore/api/pythonvanilla,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=pythonvanilla,python
 
