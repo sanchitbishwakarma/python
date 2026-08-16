@@ -1,14 +1,9 @@
 from flask import Flask, session, render_template, request, url_for, flash, redirect
 
 app = Flask(__name__)
-app.secret_key = "everythingisfairinloveandwaryeah"  # choose your own key, this is mine
+app.secret_key = "sanchitisthekey"  # choose your own key, this is mine
 
 database = {"username": "sanchit", "password": "sanchit123", "name": "Syntax Render"}
-
-
-@app.route("/", methods=["GET"])
-def home_page():
-    return "This is home page"
 
 
 # login route and controller logic
@@ -22,18 +17,13 @@ def login():
             flash("Username and password required", category="error")
             return redirect(url_for("login"))
 
-        if not (
-            username == database.get("username")
-            and password == database.get("password")
-        ):
+        if not (username == database["username"] and password == database["password"]):
             flash("Invalid credentials", category="error")
             return redirect(url_for("login"))
 
-        session["user"] = {
-            "name": database.get("name"),
-            "username": database.get("username"),
-        }
+        session["user"] = database["name"]
         return redirect(url_for("dashboard_page"))
+
     return render_template("login_page.html")
 
 
@@ -43,6 +33,7 @@ def dashboard_page():
     user = session.get("user", None)
     if user == None:
         return redirect(url_for("login"))
+
     return render_template("dashboard_page.html", user=user)
 
 
