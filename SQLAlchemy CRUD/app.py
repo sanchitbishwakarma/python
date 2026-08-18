@@ -73,6 +73,8 @@ def sitemap():
         for rule in app.url_map.iter_rules()
         if "GET" in rule.methods and "<" not in rule.rule
     ]
+    for i in range(0,50):
+        urls.append(f"http://localhost:5002/user/{i+1}")
     return (
         render_template("sitemap.xml", urls=urls),
         200,
@@ -84,4 +86,4 @@ def sitemap():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(host="localhost", debug=True, port=5002)
+    app.run(host="localhost", debug=True, port=5001)
