@@ -11,8 +11,11 @@
     <h1>DB Home Page</h1>
     {% if users %}
     {% for user in users %}
-    <div>{{user.name}} - {{user.age}} <a href="/edit/{{user.id}}">Edit</a></div>
+    <div>{{user.name}} - {{user.age}} <a href="/edit/{{user.id}}">Edit</a> | <a href="/delete/{{user.id}}">Delete</a>
+    </div>
     {% endfor %}
+    {% else %}
+    <p>There is no data to show. <a href="{{url_for('create_user')}}">create new</a></p>
     {% endif %}
 
 </html>

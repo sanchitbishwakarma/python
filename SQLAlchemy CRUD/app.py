@@ -52,6 +52,15 @@ def edit_user(id):
     return render_template("edit_page.html", user=existing_user)
 
 
+# delete
+@app.route("/delete/<int:id>", methods=["GET"])
+def delete_user(id):
+    to_delete_user = Student.query.get_or_404(id)
+    db.session.delete(to_delete_user)
+    db.session.commit()
+    return redirect(url_for("home_page"))
+
+
 # start engine
 if __name__ == "__main__":
     with app.app_context():
