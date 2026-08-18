@@ -11,9 +11,8 @@
     <h1>DB Home Page</h1>
     {% if users %}
     {% for user in users %}
-    <div>{{user.name}} - {{user.age}}</div>
+    <div>{{user.name}} - {{user.age}} <a href="/edit/{{user.id}}">Edit</a></div>
     {% endfor %}
     {% endif %}
-</body>
 
 </html>

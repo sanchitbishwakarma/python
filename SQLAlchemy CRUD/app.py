@@ -40,6 +40,18 @@ def home_page():
     return render_template("home_page.html", users=users)
 
 
+# edit
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
+def edit_user(id):
+    existing_user = Student.query.get_or_404(id)
+    if request.method == "POST":
+        existing_user.name = name = request.form.get("name", "").strip()
+        existing_user.age = request.form.get("age", "").strip()
+        db.session.commit()
+        return redirect(url_for("home_page"))
+    return render_template("edit_page.html", user=existing_user)
+
+
 # start engine
 if __name__ == "__main__":
     with app.app_context():
