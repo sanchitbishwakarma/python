@@ -61,6 +61,25 @@ def delete_user(id):
     return redirect(url_for("home_page"))
 
 
+# sitemap
+@app.route("/sitemap.xml")
+def sitemap():
+    # urls = [
+    #     url_for("home_page", _external=True),
+    #     url_for("create_user", _external=True),
+    # ]
+    urls = [
+        url_for(rule.endpoint, _external=True)
+        for rule in app.url_map.iter_rules()
+        if "GET" in rule.methods and "<" not in rule.rule
+    ]
+    return (
+        render_template("sitemap.xml", urls=urls),
+        200,
+        {"Content-Type": "application/xml"},
+    )
+
+
 # start engine
 if __name__ == "__main__":
     with app.app_context():
