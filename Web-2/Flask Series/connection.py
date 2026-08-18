@@ -32,6 +32,6 @@ def add_multiple():
 
 
 if __name__ == "__main__":
-    with app.app_context():
+    with app.app_context(): 
         db.create_all()
     app.run(host="localhost", port=5002, debug=True)
